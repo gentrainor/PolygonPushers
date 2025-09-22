@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     // Speed at which the player moves.
     public float speed = 1;
-    public float jumpForce = 1;
+    public float jumpForce = 10;
 
     public bool isGrounded = false;
 

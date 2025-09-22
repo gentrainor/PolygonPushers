@@ -1194,7 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 5
+  jumpForce: 10
   isGrounded: 1
 --- !u!114 &1115378915
 MonoBehaviour:
