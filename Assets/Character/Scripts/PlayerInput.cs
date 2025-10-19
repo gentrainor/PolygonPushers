@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace Character.CharacterControl
 {
+    [DefaultExecutionOrder(-2)]
     public class PlayerInput : MonoBehaviour, PlayerControls.IPlayerActions
     {
         public PlayerControls PlayerControls { get; private set; }
@@ -23,7 +24,8 @@ namespace Character.CharacterControl
             PlayerControls.Player.SetCallbacks(this);
         }
 
-        private void OnDisable() {
+        private void OnDisable()
+        {
             PlayerControls.Player.Disable();
             PlayerControls.Player.RemoveCallbacks(this);
         }
@@ -51,14 +53,13 @@ namespace Character.CharacterControl
         public void OnLook(InputAction.CallbackContext context)
         {
             // throw new System.NotImplementedException();
-            LookInput = context.ReadValue<Vector2>();
 
         }
 
         public void OnMove(InputAction.CallbackContext context)
         {
             MovementInput = context.ReadValue<Vector2>();
-            print(MovementInput);
+            // print(MovementInput);
         }
 
         public void OnNext(InputAction.CallbackContext context)
