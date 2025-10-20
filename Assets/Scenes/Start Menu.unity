@@ -392,8 +392,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Instructions: \n- Move: WASD or Arrow Keys to move \n- Jump: Space\n-Collect
-    stars to score\n-Avoid obstacles to survive\n-Goal: Beat all 3 levels as fast
-    as you can!\n"
+    stars to score\n-Avoid obstacles to survive\n-You will be starting on a platform,
+    as soon as you leave that platform the game has started and your timer has begun!\n-Goal:
+    Beat all 3 levels as fast as you can!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
