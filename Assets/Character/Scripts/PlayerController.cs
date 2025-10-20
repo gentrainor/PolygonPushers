@@ -27,8 +27,14 @@ namespace Character.CharacterControl
         private float camYaw = 0f;
         private float camPitch = 30f; // angle loking down
         public float gravity = -9.81f;   // m/s^2
-        public float jumpSpeed = 6f;     
+        public float jumpSpeed = 6f;
         private float verticalVel = 0f;  // track vertical speed
+        // --- Jump & Gravity ---
+public float coyoteTime = 0.10f;    // grace time after leaving ground
+public float jumpBufferTime = 0.10f;// grace time if you press a bit early
+
+private float groundedTimer = 0f;   // counts down coyote time
+private float jumpBufferTimer = 0f; // counts down buffered jump
 
 
         private void Awake()
@@ -70,11 +76,12 @@ namespace Character.CharacterControl
     if (cam == null || charController == null || playerInpt == null)
         return;
 
-    // ---- Horizontal (your existing logic) ----
+    // --- Input-relative directions (camera plane) ---
     Vector3 camFwd  = new Vector3(cam.transform.forward.x, 0f, cam.transform.forward.z).normalized;
     Vector3 camRght = new Vector3(cam.transform.right.x,  0f, cam.transform.right.z).normalized;
     Vector3 moveDir = camRght * playerInpt.MovementInput.x + camFwd * playerInpt.MovementInput.y;
 
+    // --- Your accel/drag horizontal velocity model ---
     Vector3 moveChng = moveDir * accel * Time.deltaTime;
     Vector3 newVel   = charController.velocity + moveChng;
 
@@ -82,28 +89,44 @@ namespace Character.CharacterControl
     if (newVel.magnitude > drag * Time.deltaTime) newVel -= dragFrc; else newVel = Vector3.zero;
     newVel = Vector3.ClampMagnitude(newVel, speed);
 
-    // keep horizontal only for this part
+    // horizontal only (y handled separately)
     Vector3 horizVel = newVel; 
     horizVel.y = 0f;
 
-    // ---- Gravity & Grounding ----
-    if (charController.isGrounded)
+    // --- Ground state timers (coyote) ---
+    if (charController.isGrounded) groundedTimer = coyoteTime;
+    else groundedTimer -= Time.deltaTime;
+
+    // --- Jump buffer (catch early presses) ---
+    if (playerInpt.ConsumeJumpPressed())
+        jumpBufferTimer = jumpBufferTime;
+    else
+        jumpBufferTimer -= Time.deltaTime;
+
+    // --- Jump if allowed (within grace windows) ---
+    if (groundedTimer > 0f && jumpBufferTimer > 0f)
     {
-        // small downward bias so we stay stuck to slopes
-        if (verticalVel < -2f) verticalVel = -2f;
-        // TODO: handle jump here if you want:
-        // if (playerInpt.JumpPressed) verticalVel = jumpSpeed;
+        verticalVel = jumpSpeed;
+        groundedTimer = 0f;
+        jumpBufferTimer = 0f;
+    }
+
+    // --- Gravity / stick-to-ground ---
+    if (charController.isGrounded && verticalVel < 0f)
+    {
+        // small bias keeps controller glued to slopes
+        verticalVel = -2f;
     }
     else
     {
-        verticalVel += gravity * Time.deltaTime; // accelerate downward
+        verticalVel += gravity * Time.deltaTime;
     }
 
-    // ---- Move ----
+    // --- Final move ---
     Vector3 motion = (horizVel + new Vector3(0f, verticalVel, 0f)) * Time.deltaTime;
     charController.Move(motion);
 
-    // ---- Face movement direction ----
+    // --- Face movement direction ---
     if (moveDir.sqrMagnitude > 0.01f)
     {
         Quaternion targetRot = Quaternion.LookRotation(moveDir);
