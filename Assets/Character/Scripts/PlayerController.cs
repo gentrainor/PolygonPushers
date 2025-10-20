@@ -26,6 +26,10 @@ namespace Character.CharacterControl
         private PlayerInput playerInpt;
         private float camYaw = 0f;
         private float camPitch = 30f; // angle loking down
+        public float gravity = -9.81f;   // m/s^2
+        public float jumpSpeed = 6f;     
+        private float verticalVel = 0f;  // track vertical speed
+
 
         private void Awake()
         {
@@ -62,33 +66,51 @@ namespace Character.CharacterControl
         }
 
         private void HandleMovement()
-        {
-            if (cam == null || charController == null || playerInpt == null)
-                return;
+{
+    if (cam == null || charController == null || playerInpt == null)
+        return;
 
-            Vector3 camFwd = new Vector3(cam.transform.forward.x, 0f, cam.transform.forward.z).normalized;
-            Vector3 camRght = new Vector3(cam.transform.right.x, 0f, cam.transform.right.z).normalized;
-            Vector3 moveDir = camRght * playerInpt.MovementInput.x + camFwd * playerInpt.MovementInput.y;
+    // ---- Horizontal (your existing logic) ----
+    Vector3 camFwd  = new Vector3(cam.transform.forward.x, 0f, cam.transform.forward.z).normalized;
+    Vector3 camRght = new Vector3(cam.transform.right.x,  0f, cam.transform.right.z).normalized;
+    Vector3 moveDir = camRght * playerInpt.MovementInput.x + camFwd * playerInpt.MovementInput.y;
 
-            Vector3 moveChng = moveDir * accel * Time.deltaTime;
-            Vector3 newVel = charController.velocity + moveChng;
+    Vector3 moveChng = moveDir * accel * Time.deltaTime;
+    Vector3 newVel   = charController.velocity + moveChng;
 
-            Vector3 dragFrc = newVel.normalized * drag * Time.deltaTime;
-            if (newVel.magnitude > drag * Time.deltaTime)
-                newVel -= dragFrc;
-            else
-                newVel = Vector3.zero;
+    Vector3 dragFrc = newVel.normalized * drag * Time.deltaTime;
+    if (newVel.magnitude > drag * Time.deltaTime) newVel -= dragFrc; else newVel = Vector3.zero;
+    newVel = Vector3.ClampMagnitude(newVel, speed);
 
-            newVel = Vector3.ClampMagnitude(newVel, speed);
-            charController.Move(newVel * Time.deltaTime);
+    // keep horizontal only for this part
+    Vector3 horizVel = newVel; 
+    horizVel.y = 0f;
 
-            // rotate player to face movment direction
-            if (moveDir.magnitude > 0.1f)
-            {
-                Quaternion targetRot = Quaternion.LookRotation(moveDir);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * 10f);
-            }
-        }
+    // ---- Gravity & Grounding ----
+    if (charController.isGrounded)
+    {
+        // small downward bias so we stay stuck to slopes
+        if (verticalVel < -2f) verticalVel = -2f;
+        // TODO: handle jump here if you want:
+        // if (playerInpt.JumpPressed) verticalVel = jumpSpeed;
+    }
+    else
+    {
+        verticalVel += gravity * Time.deltaTime; // accelerate downward
+    }
+
+    // ---- Move ----
+    Vector3 motion = (horizVel + new Vector3(0f, verticalVel, 0f)) * Time.deltaTime;
+    charController.Move(motion);
+
+    // ---- Face movement direction ----
+    if (moveDir.sqrMagnitude > 0.01f)
+    {
+        Quaternion targetRot = Quaternion.LookRotation(moveDir);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * 10f);
+    }
+}
+
 
         private void HandleLookRotation()
         {
