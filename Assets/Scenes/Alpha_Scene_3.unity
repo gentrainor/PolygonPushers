@@ -1628,6 +1628,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6616195798592786305, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cd4e8639a4615f347a114f0495f6600d, type: 2}
     - target: {fileID: 6740849574069445613, guid: d43204ea30921654eb71e27741051d90, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.253995
@@ -1674,20 +1678,36 @@ PrefabInstance:
       objectReference: {fileID: 299320537}
     - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
       propertyPath: drag
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
-      propertyPath: accel
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: accel
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
       propertyPath: speed
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 299320537}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 6937619537279954254}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: runSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: dragForce
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: walkSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
       propertyPath: camOffset.y
       value: 45
@@ -1696,6 +1716,14 @@ PrefabInstance:
       propertyPath: camOffset.z
       value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: acceleration
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 299320537}
     - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
       propertyPath: camLookHeight
       value: 20
@@ -1717,9 +1745,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: sprintMultiplier
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
       propertyPath: cameraDesiredPose
       value: 
       objectReference: {fileID: 1628250968}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: characterAnimator
+      value: 
+      objectReference: {fileID: 6937619537279954254}
     - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
       propertyPath: characterController
       value: 
@@ -1762,6 +1798,11 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 1e-17
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!95 &6937619537279954254 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6616195798592786305, guid: d43204ea30921654eb71e27741051d90, type: 3}
+  m_PrefabInstance: {fileID: 6937619537279954248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8663064414622919859
 PrefabInstance:
   m_ObjectHideFlags: 0
