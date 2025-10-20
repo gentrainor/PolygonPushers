@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraBehavior : MonoBehaviour
+public class CameraFollowThirdPerson : MonoBehaviour
 {
     [Header("Target")]
     public Transform target;
@@ -62,4 +62,3 @@ public class CameraBehavior : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, 1f - Mathf.Exp(-rotSmooth * Time.deltaTime));
     }
 }
-
