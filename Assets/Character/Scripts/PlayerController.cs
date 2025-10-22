@@ -186,6 +186,7 @@ namespace Character.CharacterControl
             float smoothedSpeed = Mathf.Lerp(currentAnimationSpeed, targetAnimationSpeed, Time.deltaTime * 10f);
 
             characterAnimator.SetFloat("Speed", smoothedSpeed);
+            characterAnimator.SetBool("IsGrounded", characterController.isGrounded);
         }
 
         // cam settings
