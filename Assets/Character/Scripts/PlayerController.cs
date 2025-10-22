@@ -36,11 +36,11 @@ namespace Character.CharacterControl
         private float cameraYaw = 0f;
         private float cameraPitch = 30f;
         public float gravityForce = -9.81f;
-        public float jumpForce = 6f;
+        public float jumpForce = 15f;
         private float verticalVelocity = 0f;
 
         public float jumpGracePeriod = 0.10f;
-        public float jumpBufferTime = 0.10f;
+        public float jumpBufferTime = 0.05f;
         private float groundedTimer = 0f;
         private float jumpBufferTimer = 0f;
 
@@ -153,7 +153,8 @@ namespace Character.CharacterControl
             }
             else
             {
-                verticalVelocity += gravityForce * Time.deltaTime;
+                float gravityMultiplier = verticalVelocity < 0f ? 2f : 1f; 
+                verticalVelocity += gravityForce * gravityMultiplier * Time.deltaTime;
             }
 
             Vector3 finalMotion = (horizontalVelocity + new Vector3(0f, verticalVelocity, 0f)) * Time.deltaTime;
