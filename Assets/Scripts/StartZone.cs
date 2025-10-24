@@ -3,6 +3,7 @@ using UnityEngine;
 public class StartZone : MonoBehaviour
 {
     [SerializeField] private RaceTimer raceTimer;
+    [SerializeField] private ScoreCounter scoreCounter;
     [SerializeField] private string playerTag = "Player";
     private bool started = false;
 
@@ -12,6 +13,7 @@ public class StartZone : MonoBehaviour
         {
             started = true;
             if (raceTimer != null) raceTimer.StartTimer();
+            if (scoreCounter != null) scoreCounter.StartCounter();
         }
     }
 }
