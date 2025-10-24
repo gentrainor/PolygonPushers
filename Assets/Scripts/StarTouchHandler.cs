@@ -10,7 +10,7 @@ public class StarTouchHandler : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Star touched by Player. Destroying star.");
-            scoreCounter.AddScore(1);
+            ScoreCounter.Instance?.AddScore(1);
             Destroy(gameObject); 
         }
     }
