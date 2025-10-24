@@ -153,7 +153,7 @@ namespace Character.CharacterControl
             }
             else
             {
-                float gravityMultiplier = verticalVelocity < 0f ? 2f : 1f; 
+                float gravityMultiplier = verticalVelocity < 0f ? 2f : 1f;
                 verticalVelocity += gravityForce * gravityMultiplier * Time.deltaTime;
             }
 
