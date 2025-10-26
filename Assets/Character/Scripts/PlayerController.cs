@@ -10,6 +10,10 @@ namespace Character.CharacterControl
     [DefaultExecutionOrder(-1)]
     public class PlayerController : MonoBehaviour
     {
+        [Header("SoundFX")]
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip jumpSFX;
+
         [Header("Character")]
         [SerializeField] private CharacterController characterController;
         [SerializeField] private Camera playerCamera;
@@ -46,6 +50,10 @@ namespace Character.CharacterControl
 
         private void Awake()
         {
+            if (audioSource == null)
+            {
+                audioSource = GetComponent<AudioSource>();
+            }
             playerInput = GetComponent<PlayerInput>();
 
             if (characterAnimator == null)
@@ -64,10 +72,8 @@ namespace Character.CharacterControl
             HandleMovement();
             HandleAnimations();
 
-            // Check if we should handle mouse look
             if (enableMouseLook)
             {
-                // right click to move camera
                 if (!requireRightClick || Input.GetMouseButton(1))
                 {
                     HandleLookRotation();
@@ -145,6 +151,11 @@ namespace Character.CharacterControl
                 verticalVelocity = jumpForce;
                 groundedTimer = 0f;
                 jumpBufferTimer = 0f;
+
+                if (audioSource != null && jumpSFX != null)
+                {
+                    audioSource.PlayOneShot(jumpSFX);
+                }
             }
 
             if (characterController.isGrounded && verticalVelocity < 0f)
