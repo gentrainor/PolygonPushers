@@ -20,3 +20,4 @@ movement is somewhat "slippery"
 contributions:
 
 john - imported character and connected mecanim animations, some playercontroller.cs, pausemenu.cs, and sfx
+Seong Won - implemented the Enemy AI system using NavMesh configured waypoints, and integrated it across all scenes. Fixed some errors.
