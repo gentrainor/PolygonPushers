@@ -27,4 +27,4 @@ Genevieve Trainor - created start menu, fixed camera position, created timer whe
 
 Mena Doce - Created obstacles on both paths of the scene, including hill obstacle and obstacles where player has to go through loops to reach end
 
-
+David Gabriel - Created the score counter and the two obstacles at the start of each of the paths.
