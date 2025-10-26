@@ -10,7 +10,7 @@ WASD - move,
 space - jump,
 shift - run,
 
-starts to collect around map, physics based obstacles left choice, other obstacles on right, goal block at end.
+red dots to collect around map, physics based obstacles left choice, other obstacles on right, goal block at end.
 timer & score on ui,
 pause menu - esc
 ai enemy on course
