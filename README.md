@@ -24,3 +24,7 @@ john - imported character and connected mecanim animations, some playercontrolle
 Seong Won - implemented the Enemy AI system using NavMesh configured waypoints, and integrated it across all scenes. Fixed some errors.
 
 Genevieve Trainor - created start menu, fixed camera position, created timer when game starts, respawn feature when character touches ground he respawns to starting platform. also did some game feel and created first three obstacles and the wall enclosure and starting platform. 
+
+Mena Doce - Created obstacles on both paths of the scene, including hill obstacle and obstacles where player has to go through loops to reach end
+
+
