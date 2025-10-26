@@ -19,4 +19,4 @@ character movement somewhat janky
 
 contributions:
 
-john - imported character and connected mecanim animations, some playercontroller, pause menu, and sfx
+john - imported character and connected mecanim animations, some playercontroller.cs, pausemenu.cs, and sfx
