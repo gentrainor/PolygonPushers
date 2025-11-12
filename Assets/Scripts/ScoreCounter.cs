@@ -6,13 +6,14 @@ public class ScoreCounter : MonoBehaviour
     public static ScoreCounter Instance { get; private set; }
 
     [SerializeField] private TextMeshProUGUI scoreText;
-    private int score = 0;
+    private static int score = 0;
     private bool running = false;
 
     void Awake()
     {
-        Instance = this;
-        if (scoreText != null)
+        DontDestroyOnLoad(gameObject);
+        Instance = this; 
+        if (scoreText != null) 
             scoreText.gameObject.SetActive(false);
     }
 
