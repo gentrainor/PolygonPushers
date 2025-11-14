@@ -4,10 +4,10 @@ public class StarTouchHandler : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip collectSFX;
-    [SerializeField] private ScoreCounter scoreCounter;
+    [SerializeField] public ScoreCounter scoreCounter;
 
     void Start()
-    { 
+    {
         audioSource = GetComponent<AudioSource>();
 
     }
@@ -23,5 +23,4 @@ public class StarTouchHandler : MonoBehaviour
             Destroy(gameObject, collectSFX != null ? collectSFX.length : 0f);
         }
     }
-    
 }

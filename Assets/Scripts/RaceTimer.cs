@@ -41,6 +41,11 @@ public class RaceTimer : MonoBehaviour
         running = false;
     }
 
+    public float GetTime()
+    {
+        return t;
+    }
+
     public void ResetTimer()
     {
         running = false;

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;  
 using UnityEngine.UI;
@@ -44,6 +45,33 @@ public class LevelCompleteCollision : MonoBehaviour
     {
         hasTriggered = true;
 
+
+        RaceTimer timer = FindFirstObjectByType<RaceTimer>();
+        if (timer != null)
+        {
+            timer.StopTimer();
+            float finalTime = timer.GetTime();
+            int baseScore = ScoreCounter.Instance != null ? ScoreCounter.Instance.GetScore() : 0;
+            print(baseScore);
+            int timePenalty = Mathf.FloorToInt(finalTime);
+            double finalScore = (baseScore * (1.0 / timePenalty)) * 100;
+            print(finalScore); //TODO display this later
+
+
+            if (levelCompleteUI != null)
+            {
+                Transform child = levelCompleteUI.transform.Find("LevelCompleteText");
+                if (child != null)
+                {
+                    TextMeshProUGUI textComponent = child.GetComponent<TextMeshProUGUI>();
+                    if (textComponent != null)
+                    {
+                        textComponent.text = $"Level Complete!\nFinal Score: {finalScore:F0}";
+                    }
+                }
+            }
+        }
+
         // Show Level Complete UI
         if (levelCompleteUI != null)
         {
@@ -63,6 +91,10 @@ public class LevelCompleteCollision : MonoBehaviour
 
     void LoadNextScene()
     {
+        if (ScoreCounter.Instance != null)
+        {
+            ScoreCounter.Instance.ResetCounter();
+        }
         SceneManager.LoadScene(nextSceneName);
     }
     
