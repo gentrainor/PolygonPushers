@@ -23,7 +23,7 @@ john pham - imported character and connected mecanim animations, some playercont
 
 Seong Won - implemented the Enemy AI system using NavMesh configured waypoints, and integrated it across all scenes. Fixed some errors.
 
-Genevieve Trainor - created start menu, fixed camera position, created timer when game starts, respawn feature when character touches ground he respawns. Also did some game feel and created first three obstacles and the wall enclosure and starting platform. startmenu.cs, racetimer.cs, startzone.cs and edited some playercontroller.cs. Edit LevelCompleteCollision.cs to start level 2. Added MoveUpDown.cs to balls in level 2. Updated AI configuration and Waypoint placements. 
+Genevieve Trainor - created start menu, fixed camera position, created timer when game starts, respawn feature when character touches ground he respawns. Also did some game feel and created first three obstacles and the wall enclosure and starting platform. startmenu.cs, racetimer.cs, startzone.cs and edited some playercontroller.cs. Edit LevelCompleteCollision.cs to start level 2. Added MoveUpDown.cs to balls in level 2. Updated AI configuration and Waypoint placements. Edited ResetOnGround.cs: score decreases when player respawns. 
 
 Mena Doce - Created obstacles on both paths of the scene, including hill obstacle and obstacles where player has to go through loops to reach end
 
