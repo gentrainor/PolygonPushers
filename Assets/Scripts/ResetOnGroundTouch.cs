@@ -3,17 +3,13 @@ using UnityEngine;
 
 public class RespawnOnPlaneLanding : MonoBehaviour
 {
-    [Header("Respawn Settings")]
     public Transform respawnPoint;          
     public float spawnYOffset = 0.15f;      
-
-    [Header("Ground Detection")]
     public string groundTag = "Ground";     
     public float minImpactSpeed = 2.0f;     
     public float landingCooldown = 0.35f;   
-
-    [Header("Player Movement Script")]
     public MonoBehaviour movementScript;    
+    public int respawnPenalty = 1;   // how much to lose per respawn
 
     private CharacterController cc;
     private float nextAllowedTime = 0f;
@@ -56,6 +52,7 @@ public class RespawnOnPlaneLanding : MonoBehaviour
     private IEnumerator RespawnRoutine()
     {
         nextAllowedTime = Time.time + landingCooldown;
+
         if (movementScript != null)
             movementScript.enabled = false;
 
@@ -63,7 +60,7 @@ public class RespawnOnPlaneLanding : MonoBehaviour
             cc.enabled = false;
 
         Vector3 targetPos = respawnPoint.position;
-        targetPos.y += spawnYOffset; // Lift slightly above platform
+        targetPos.y += spawnYOffset; 
         transform.SetPositionAndRotation(targetPos, respawnPoint.rotation);
 
         yield return null;
@@ -76,9 +73,18 @@ public class RespawnOnPlaneLanding : MonoBehaviour
         if (movementScript != null)
             movementScript.enabled = true;
 
-        Debug.Log("Respawned player at: " + respawnPoint.position);
+        if (ScoreCounter.Instance != null)
+        {
+            ScoreCounter.Instance.AddScore(-respawnPenalty);
+            Debug.Log($"Respawned player. Score penalized by {respawnPenalty}. New score: {ScoreCounter.Instance.GetScore()}");
+        }
+        else
+        {
+            Debug.LogWarning("ScoreCounter.Instance is null - no score penalty applied.");
+        }
     }
 }
+
 
 
 
