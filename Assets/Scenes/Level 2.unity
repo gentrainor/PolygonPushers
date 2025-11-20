@@ -846,6 +846,7 @@ GameObject:
   - component: {fileID: 252216599}
   - component: {fileID: 252216598}
   - component: {fileID: 252216597}
+  - component: {fileID: 252216601}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -938,12 +939,34 @@ Transform:
   m_GameObject: {fileID: 252216596}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.5, y: 14.9, z: 94.9}
+  m_LocalPosition: {x: 5.5, y: 12, z: 94.9}
   m_LocalScale: {x: 10, y: 20, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!95 &252216601
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252216596}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e058fc4f793291428769101a52917b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 1
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &276611774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8417293822675543658, guid: 455f8badef8401846bf97ebdbe136f23, type: 3}
