@@ -15,8 +15,6 @@ timer & score on ui,
 pause menu - esc
 ai enemy on course
 
-movement is somewhat "slippery"
-
 contributions:
 
 john pham - imported character and connected mecanim animations, some playercontroller.cs (refined movement as well), pausemenu.cs, levelcomplete.cs, some scorecounter.cs and sfx. 
