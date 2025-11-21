@@ -7081,6 +7081,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: f886a811d5319a644b46442617c7c5e2, type: 3}
     - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: dragForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: jumpForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: walkSpeed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 962820704}
@@ -7088,6 +7100,14 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1634031767}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: acceleration
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: gravityForce
+      value: -45
+      objectReference: {fileID: 0}
     - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
       propertyPath: playerCamera
       value: 
@@ -7099,6 +7119,10 @@ PrefabInstance:
     - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
       propertyPath: cameraOffset.z
       value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603860265357518418, guid: d43204ea30921654eb71e27741051d90, type: 3}
+      propertyPath: sprintMultiplier
+      value: 1.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

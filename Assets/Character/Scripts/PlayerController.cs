@@ -98,6 +98,7 @@ namespace Character.CharacterControl
             bool isSprinting = Input.GetKey(KeyCode.LeftShift);
             float currentSpeed = isSprinting ? walkSpeed * sprintMultiplier : walkSpeed;
             float currentAcceleration = isSprinting ? acceleration * sprintMultiplier : acceleration;
+            float currentDrag = isSprinting ? dragForce * sprintMultiplier : dragForce;
 
             Vector3 cameraForward = new Vector3(playerCamera.transform.forward.x, 0f, playerCamera.transform.forward.z).normalized;
             Vector3 cameraRight = new Vector3(playerCamera.transform.right.x, 0f, playerCamera.transform.right.z).normalized;
@@ -115,7 +116,7 @@ namespace Character.CharacterControl
                 Vector3 velocityChange = moveDirection * currentAcceleration * Time.deltaTime;
                 Vector3 newVelocity = currentVelocity + velocityChange;
 
-                Vector3 dragVector = newVelocity.normalized * dragForce * Time.deltaTime;
+                Vector3 dragVector = newVelocity.normalized * currentDrag * Time.deltaTime;
                 if (newVelocity.magnitude > dragForce * Time.deltaTime)
                     newVelocity -= dragVector;
 
@@ -124,16 +125,17 @@ namespace Character.CharacterControl
             }
             else
             {
-                float stoppingSpeed = dragForce * 3f * Time.deltaTime;
+                // float stoppingSpeed = dragForce * 3f * Time.deltaTime;
 
-                if (currentVelocity.magnitude > stoppingSpeed)
-                {
-                    horizontalVelocity = currentVelocity - currentVelocity.normalized * stoppingSpeed;
-                }
-                else
-                {
-                    horizontalVelocity = Vector3.zero;
-                }
+                // if (currentVelocity.magnitude > stoppingSpeed)
+                // {
+                //     horizontalVelocity = currentVelocity - currentVelocity.normalized * stoppingSpeed;
+                // }
+                // else
+                // {
+                //     horizontalVelocity = Vector3.zero;
+                // }
+                horizontalVelocity = Vector3.zero;
             }
 
             if (characterController.isGrounded)
