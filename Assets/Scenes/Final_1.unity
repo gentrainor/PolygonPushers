@@ -3297,7 +3297,7 @@ PrefabInstance:
     - target: {fileID: 4446043442623026778, guid: ccca4431eb90a964d93a165039a4edc5, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 28332b9d8dd96441a90b680343782299, type: 2}
+      objectReference: {fileID: 2100000, guid: bbcb12027f64e4542aca1a2c68c43970, type: 2}
     - target: {fileID: 6183190260412604150, guid: ccca4431eb90a964d93a165039a4edc5, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -5003,6 +5003,7 @@ MonoBehaviour:
   minImpactSpeed: 2
   landingCooldown: 0.35
   movementScript: {fileID: 0}
+  respawnPenalty: 1
 --- !u!82 &1634031767
 AudioSource:
   m_ObjectHideFlags: 0
