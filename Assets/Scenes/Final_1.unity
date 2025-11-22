@@ -4140,6 +4140,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1442151712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442151705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5f48fa0cbb58143ba5614650ec663c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 60
+  hoverHeight: 0.2
+  hoverSpeed: 2
+  emissionColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  emissionBase: 1
+  emissionPulse: 0.5
 --- !u!1 &1451977781
 GameObject:
   m_ObjectHideFlags: 0
@@ -7097,6 +7115,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8273890729096440181, guid: 87119c567d1295b4dbf1277694d6a037, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1442151711}
+    - targetCorrespondingSourceObject: {fileID: 8273890729096440181, guid: 87119c567d1295b4dbf1277694d6a037, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1442151712}
   m_SourcePrefab: {fileID: 100100000, guid: 87119c567d1295b4dbf1277694d6a037, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
