@@ -49,7 +49,8 @@ public class RespawnOnPlaneLanding : MonoBehaviour
         }
     }
 
-    private IEnumerator RespawnRoutine()
+
+    public IEnumerator RespawnRoutine()
     {
         nextAllowedTime = Time.time + landingCooldown;
 
@@ -60,7 +61,7 @@ public class RespawnOnPlaneLanding : MonoBehaviour
             cc.enabled = false;
 
         Vector3 targetPos = respawnPoint.position;
-        targetPos.y += spawnYOffset; 
+        targetPos.y += spawnYOffset;
         transform.SetPositionAndRotation(targetPos, respawnPoint.rotation);
 
         yield return null;
