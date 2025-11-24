@@ -1455,6 +1455,7 @@ GameObject:
   - component: {fileID: 299320537}
   - component: {fileID: 299320536}
   - component: {fileID: 299320535}
+  - component: {fileID: 299320538}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1580,6 +1581,18 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &299320538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299320531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5abbb5887c9224d80721c64260dd30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &308202966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9153,6 +9166,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1442151711}
+    - target: {fileID: 5922068050375222175, guid: 87119c567d1295b4dbf1277694d6a037, type: 3}
+      propertyPath: nextSceneName
+      value: Start Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 5922068050375222175, guid: 87119c567d1295b4dbf1277694d6a037, type: 3}
       propertyPath: levelCompleteUI
       value: 
