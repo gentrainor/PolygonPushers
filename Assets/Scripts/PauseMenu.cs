@@ -33,6 +33,7 @@ public class PauseMenu : MonoBehaviour
                 canvasGroup.blocksRaycasts = false;
                 canvasGroup.alpha = 0f;
                 Cursor.visible = false;
+                Time.timeScale = 1f;
             }
             else
             {
@@ -40,6 +41,7 @@ public class PauseMenu : MonoBehaviour
                 canvasGroup.blocksRaycasts = true;
                 canvasGroup.alpha = 1f;
                 Cursor.visible = true;
+                Time.timeScale = 0f;
             }
         }
     }
