@@ -25,4 +25,4 @@ Genevieve Trainor - created start menu, fixed camera position, created timer whe
 
 Mena Doce - Created obstacles on both paths of the scene, including hill obstacle and obstacles where player has to go through loops to reach end
 
-David Gabriel - Created the score counter and the two obstacles at the start of each of the paths.
+David Gabriel - Created ScoreCounter.cs and ScoreText object to implement the score counter and the two obstacles at the start of each of the paths. Created animation Push Obstacle.anim and Move Cylinder.anim animations, and Push Obstacle.controller and Cylinder.controller to create the pushing obstacles on the the left side of level 1 and the 3 obstacle of level 2. Implemented CursorScript.cs to hide the cursor during gameplay. Created gear and ball obstacles on the left side of level 2 and implemented RotateZ.cs to move the gear obstacles.
