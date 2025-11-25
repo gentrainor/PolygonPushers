@@ -32,12 +32,14 @@ public class PauseMenu : MonoBehaviour
                 canvasGroup.interactable = false;
                 canvasGroup.blocksRaycasts = false;
                 canvasGroup.alpha = 0f;
+                Cursor.visible = false;
             }
             else
             {
                 canvasGroup.interactable = true;
                 canvasGroup.blocksRaycasts = true;
                 canvasGroup.alpha = 1f;
+                Cursor.visible = true;
             }
         }
     }
